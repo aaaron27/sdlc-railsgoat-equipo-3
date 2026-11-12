@@ -1,41 +1,8 @@
-# Matriz de riesgos
-
-Una fila por riesgo. La columna «Caso de abuso» cita los issues con #n. El checkpoint lee solo esta tabla: no agregue otras tablas a este archivo.
-
 | ID | Amenaza | STRIDE | Caso de abuso | Probabilidad | Impacto | Riesgo | Tratamiento |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-| R-01 | | | | | | | |
-| R-02 | | | | | | | |
-| R-03 | | | | | | | |
-| R-04 | | | | | | | |
-| R-05 | | | | | | | |
-| R-06 | | | | | | | |
-
-## Escala
-
-Probabilidad (P):
-
-- **1, baja.** Requiere acceso privilegiado, conocimiento interno o una cadena de varios pasos.
-- **2, media.** Un usuario registrado lo logra con herramientas comunes.
-- **3, alta.** Cualquier visitante anónimo lo logra desde el navegador.
-
-Impacto (I):
-
-- **1, bajo.** Afecta a un usuario y se revierte sin pérdida.
-- **2, medio.** Expone o altera datos de varios usuarios, o detiene una función.
-- **3, alto.** Expone datos sensibles en masa, da control de administración o detiene la app.
-
-Riesgo = P × I. De 1 a 2 es bajo, de 3 a 4 es medio y de 6 a 9 es alto.
-
-Tratamiento: **mitigar** (con el requerimiento #n que lo cubre), **aceptar** (con justificación), **transferir** o **evitar**.
-
-## Mapa de calor
-
-Escriba los ID de riesgo en la celda que les corresponde.
-
-```
-            Impacto 1     Impacto 2     Impacto 3
-P 3      |             |             |             |
-P 2      |             |             |             |
-P 1      |             |             |             |
-```
+| R-01 | Acceso anónimo a datos laborales y SSN por ID secuencial en GET /users/:id/work_info | S | #4 | 3 | 3 | 9 | Corregir |
+| R-02 | Escalada de privilegios por falta de validación de rol administrativo en rutas laborales | E | #3 | 2 | 3 | 6 | Corregir |
+| R-03 | Exposición de atributos internos, credenciales y propiedades ocultas en GET /api/v1/users | E | #5 | 3 | 2 | 6 | Mitigar |
+| R-04 | Saturación y caída del servidor por falta de límite de peticiones en GET /login | D | #6 | 3 | 3 | 9 | Mitigar |
+| R-05 | Modificación no autorizada de cuentas de otros usuarios mediante IDOR en PATCH /users/:id | T | #7 | 2 | 3 | 6 | Corregir |
+| R-06 | Acceso sin autorización al panel administrativo /admin/:admin_id/get_all_users y alteración de salarios | R | #8 | 2 | 3 | 6 | Corregir |

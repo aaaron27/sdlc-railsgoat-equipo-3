@@ -1,0 +1,17 @@
+rules:
+  - id: idor-busqueda-directa-usuario
+    languages: [ruby]
+    severity: ERROR
+    message: >-
+      Búsqueda directa de registro mediante params[:id] o params[:user_id] sin
+      validar pertenencia al usuario autenticado (current_user). Esto vulnera
+      el requerimiento #13 (ASVS 8.2.2) y permite ataques IDOR.
+    metadata:
+      requerimiento: "#13"
+      asvs: "8.2.2"
+      cwe: "CWE-639"
+    pattern-either:
+      - pattern: User.find(params[:id])
+      - pattern: User.find_by(id: params[:id])
+      - pattern: WorkInfo.find_by(user_id: params[:user_id])
+      - pattern: WorkInfo.find_by(user_id: params[:id])

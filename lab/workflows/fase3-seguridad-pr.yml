@@ -10,11 +10,14 @@ on:
   workflow_dispatch:
 
 # TODO (endurecimiento): declare "permissions: {}" aquí y dé a cada job solo lo que necesita.
+permissions: {}
 
 jobs:
   sast:
     name: SAST con Semgrep
     runs-on: ubuntu-latest
+    permitions:
+      content: read
     steps:
       - uses: actions/checkout@v7
 
@@ -46,6 +49,8 @@ jobs:
   secretos:
     name: Secretos con Gitleaks
     runs-on: ubuntu-latest
+    permitions:
+      content: read
     steps:
       - uses: actions/checkout@v7
         with:
@@ -71,8 +76,16 @@ jobs:
     name: Dependencias nuevas con Dependency Review
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     steps:
       - uses: actions/checkout@v7
+      - name: Revisar vulnerabilidades en dependencias del PR
+        uses: actions/dependency-review-action@v5
+        with:
+          fail-on-severity: high
+          warn-only: true
 
       # TODO: agregue actions/dependency-review-action@v5 con fail-on-severity: high
       # y warn-only: true (en la fase 3 solo reporta; en la fase 5 quite warn-only).

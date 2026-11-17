@@ -4,11 +4,11 @@
 
 ### Tareas
 
-- [ ] Completar `EQUIPO.md` con los integrantes, sus usuarios de GitHub y la rotación de roles.
-- [ ] Abrir el Codespace y levantar la app: `bash lab/app.sh levantar` (o `rapido`).
-- [ ] Recorrer la app como usuario normal durante 10 minutos. Anotar qué hace, qué roles tiene y qué datos guarda.
-- [ ] Activar GitHub Pages: **Settings → Pages → Source: GitHub Actions**.
-- [ ] Confirmar en Actions que «Fase 0 · CI» terminó en verde.
+- [x] Completar `EQUIPO.md` con los integrantes, sus usuarios de GitHub y la rotación de roles.
+- [x] Abrir el Codespace y levantar la app: `bash lab/app.sh levantar` (o `rapido`).
+- [x] Recorrer la app como usuario normal durante 10 minutos. Anotar qué hace, qué roles tiene y qué datos guarda.
+- [x] Activar GitHub Pages: **Settings → Pages → Source: GitHub Actions**.
+- [x] Confirmar en Actions que «Fase 0 · CI» terminó en verde.
 
 ### Checkpoint
 

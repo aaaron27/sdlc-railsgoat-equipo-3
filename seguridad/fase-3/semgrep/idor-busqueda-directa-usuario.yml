@@ -11,7 +11,7 @@ rules:
       asvs: "8.2.2"
       cwe: "CWE-639"
     pattern-either:
-      - pattern: User.find(params[:id])
-      - pattern: User.find_by(id: params[:id])
-      - pattern: WorkInfo.find_by(user_id: params[:user_id])
-      - pattern: WorkInfo.find_by(user_id: params[:id])
+      - pattern: 'User.find(params[:id])'
+      - pattern: 'User.find_by(id: params[:id])'
+      - pattern: 'WorkInfo.find_by(user_id: params[:user_id])'
+      - pattern: 'WorkInfo.find_by(user_id: params[:id])'
